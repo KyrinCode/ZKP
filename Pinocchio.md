@@ -188,7 +188,7 @@ A_\delta(x) &= A(x)+\delta_A*Z(x) \\
 B_\delta(x) &= B(x)+\delta_B*Z(x) \\
 C_\delta(x) &= C(x)+\delta_C*Z(x)
 \end{aligned}$$
-$$\begin{aligned}[]
+$$\begin{aligned}
 A_\delta(x)*B_\delta(x)-C_\delta(x) &= [A(x)+\delta_A*Z(x)] * [B(x)+\delta_B*Z(x)] -C(x)-\delta_C*Z(x) \\
 &= A(x)*B(x)-C(x) + A(x)*\delta_B*Z(x) + B(x)*\delta_A*Z(x) + \delta_A\delta_B*Z(x)^2 - \delta_C*Z(x) \\
 &= [H(x)+A(x)*\delta_B+B(x)*\delta_A+\delta_A\delta_BZ(x)-\delta_C]*Z(x)

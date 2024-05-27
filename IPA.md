@@ -5,7 +5,8 @@ $$\begin{aligned}
 \overrightarrow{b} &= (1,x,x^2,...x^{n-1}) \\
 y &= <\overrightarrow{a}, \overrightarrow{b}> \\
 \end{aligned}$$
-Commitment of $f(x)$ is $$C_f = <\overrightarrow{a}, \overrightarrow{G}>$$
+Commitment of $f(x)$ is
+$$C_f = <\overrightarrow{a}, \overrightarrow{G}>$$
 Before the first reduction step
 $$\begin{aligned}
 \overrightarrow{a^{k-1}} &= \overrightarrow{a} \\
@@ -16,6 +17,7 @@ Given basis $\overrightarrow{G},Q$, we want to claim that $C^{k-1}$ has Inner Pr
 
 Public
 + $(C_f,x,y)$
+
 Proof
 + $(\overrightarrow{L},\overrightarrow{R},G^0,a^0)$ which is $logn$ size
 $$\begin{aligned}
@@ -58,7 +60,8 @@ C^0 &= \boxed{[a^0]G^0+[a^0b^0]Q} \\
 &= C^1+[u_1^2]L_1+[u_1^{-2}R_1] \\
 &= \boxed{C^{k-1}+\sum\limits_{i\in\{1,...k-1\}}[u_i^2]L_i+[u_i^{-2}]R_i}
 \end{aligned}$$
-Verifier checks $$\begin{aligned}[]
+Verifier checks
+$$\begin{aligned}
 [a^0]G^0+[a^0b^0]Q &= C^{k-1}+\sum\limits_{i\in\{1,...k-1\}}[u_i^2]L_i+[u_i^{-2}]R_i
 \end{aligned}$$
 Left for verifier to do
@@ -67,4 +70,5 @@ Left for verifier to do
 
 ## References
 IPA https://dankradfeist.de/ethereum/2021/07/27/inner-product-arguments.html
+
 IPA in Halo2 https://www.youtube.com/watch?v=RaEs5mnXIhY

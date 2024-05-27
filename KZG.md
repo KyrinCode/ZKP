@@ -28,7 +28,7 @@ Knowledge -> Point-Values -> Coefficients -> Commitment -> Open & Prove & Verify
 ## Polynomial
 Coefficient form
 $$f(x)=\sum\limits_{i=0}^{n-1} a_i x^i= a_0 + a_1 x + ... + a_{n-1} x^{n-1}$$
-+ Degree $degree(f(x)) = n-1$
++ Degree of $f(x)$ is $n-1$
 + $a_{n-1} \neq 0$
 
 ## Encoding data into Polynomial using Lagrange Interpolation
@@ -104,7 +104,7 @@ $$f(x)-y_i=q(x)(x-x_i)$$
 Example
 + Given $f(x)=3x+3$ and data point (1, 6)
 + $3x+3-6=3x-3=q(x)(x-1)$
-$$\begin{aligned}[]
+$$\begin{aligned}
 [f(\tau) - y_i] G_1 &= [q(\tau)(\tau-x_i)] G_1 \\
 C-[y_i]_1 &= ?
 \end{aligned}$$
@@ -158,7 +158,8 @@ f_{m−1}(x_{m−1}) &= y_{m−1}
 \end{aligned}$$
 [Public] Fiat-Shamir transformation $r \leftarrow Hash(C_0,...C_{m-1},y_0,...y_{m-1},x_0,...x_{m-1})$
 
-Prover computes the polynomial $$g(x)=r^0\frac{f_0(x)−y_0}{x−x_0}+r^1\frac{f_1(x)−y_1}{x−x_1}+...+r^{m−1}\frac{f_{m−1}(x)−y_{m−1}}{x−x_{m−1}}$$
+Prover computes the polynomial
+$$g(x)=r^0\frac{f_0(x)−y_0}{x−x_0}+r^1\frac{f_1(x)−y_1}{x−x_1}+...+r^{m−1}\frac{f_{m−1}(x)−y_{m−1}}{x−x_{m−1}}$$
 If we can prove that $g(x)$ is a polynomial, then it means that all the quotients are exact divisions, and thus the proof is complete.
 
 Prover computes and sends the commitment $D=[g(\tau)]_1$, now we only need to convince the verifier that $D$ is indeed a commitment to $g(x)$
@@ -222,25 +223,26 @@ Z(x)\sum\limits_{i \in {0,1,2}}\frac{y_i}{A_I^{\prime}(x_i)(x-x_i)} &= y_0\frac{
 
 ## Linearization
 Prover wants to prove $f(x)\cdot g(x)\overset{\text{?}}{=}h(x)$
-Previously, with pairing, prover sends $[f(\tau)]_1,[g(\tau)]_2,[h(\tau)]_1$ and verifier checks $$e([f(\tau)]_1,[g(\tau)]_2)\overset{\text{?}}{=}e([h(\tau)]_1,G_2)$$
+Previously, with pairing, prover sends $[f(\tau)]_1,[g(\tau)]_2,[h(\tau)]_1$ and verifier checks
+$$e([f(\tau)]_1,[g(\tau)]_2)\overset{\text{?}}{=}e([h(\tau)]_1,G_2)$$
 Previously, with pure KZG, prover sends $[f(\tau)_1],[g(\tau)]_1,[h(\tau)]_1$, gets random $\zeta$ from verifier and opens $f(\zeta),g(\zeta),h(\zeta)$ with $[q_f(\tau)]_1,[q_g(\tau)]_1,[q_h(\tau)]_1$
 
 Linearization
 Prover sends $[f(\tau)]_1,[g(\tau)]_1,[h(\tau)]_1$ to verifier
-Prover gets random $\zeta$ from verifier and open $\boxed{f(\zeta)}$ to verifier ~~with~~ $\enclose{horizontalstrike}{\pi=[q_f(\tau)]_1}$
+Prover gets random $\zeta$ from verifier and open $\boxed{f(\zeta)}$ to verifier ~~with~~ $\cancel{\pi=[q_f(\tau)]_1}$
 
 ~~Verifier checks~~
-$$\enclose{horizontalstrike}{e([f(\tau)]_1-[f(\zeta)]_1,G_2)\overset{\text{?}}{=}e([q_f(\tau)]_1,[\tau-\zeta]_2)}$$
+$$\cancel{e([f(\tau)]_1-[f(\zeta)]_1,G_2)\overset{\text{?}}{=}e([q_f(\tau)]_1,[\tau-\zeta]_2)}$$
 Then $f(\zeta)$ is a constant to both prover and verifier
 
 Prover construct auxiliary polynomial $$r(x)=f(\zeta)\cdot g(x)-h(x)$$where $r(\zeta)$ should be 0
 
 Verifier can compute the commitment of $r(x)$ with $[r(\tau)]_1=f(\zeta)\cdot[g(\tau)]_1-[h(\tau)]_1$
 
-Prover then open $r(\zeta)$ to verifier ~~with~~ $\enclose{horizontalstrike}{\pi=[q_r(\tau)]_1}$
-$$\enclose{horizontalstrike}{q_r(x)=\frac{r(x)-0}{x-\zeta}}$$
+Prover then open $r(\zeta)$ to verifier ~~with~~ $\cancel{\pi=[q_r(\tau)]_1}$
+$$\cancel{q_r(x)=\frac{r(x)-0}{x-\zeta}}$$
 ~~Verifier checks~~
-$$\enclose{horizontalstrike}{e([r(\tau)]_1,G_2)\overset{\text{?}}{=}e([q_r(\tau)]_1,[\tau-\zeta]_2)}$$
+$$\cancel{e([r(\tau)]_1,G_2)\overset{\text{?}}{=}e([q_r(\tau)]_1,[\tau-\zeta]_2)}$$
 Use batching to combine the opening of $\zeta$ at $f(\zeta)$ and $r(\zeta)$
 
 Prover gets random $v$ from verifier
@@ -255,12 +257,14 @@ $$e([k(\tau)]_1-[f(\zeta)]_1,G_2)\overset{\text{?}}{=}e([q(\tau)]_1,[\tau-\zeta]
 Prover delays the proving of $f(\zeta)$ and $r(\zeta)$ and combines them together
 
 ## References
-KZG https://www.youtube.com/watch?v=n4eiiCDhTes https://www.youtube.com/watch?v=NVvNHe_RGZ8
 Tau https://github.com/ethereum/kzg-ceremony-specs
+
 KZG https://dankradfeist.de/ethereum/2020/06/16/kate-polynomial-commitments.html
-KZG https://blog.subspace.network/kzg-polynomial-commitments-cd64af8ec868
-KZG with code https://kaijuneer.medium.com/explaining-kzg-commitment-with-code-walkthrough-216638a620c9 https://kaijuneer.medium.com/intuition-on-kzg-aggregation-d99ddb8813b3
+
 Proof aggregation (same commitment) https://eprint.iacr.org/2020/527.pdf
+
 Proof aggregation (multiple commitment) https://dankradfeist.de/ethereum/2021/06/18/pcs-multiproofs.html
+
 Verkle tree https://dankradfeist.de/ethereum/2021/06/18/verkle-trie-for-eth1.html
+
 Verkle tree https://vitalik.eth.limo/general/2021/06/18/verkle.html

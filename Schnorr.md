@@ -43,11 +43,13 @@ Special Honest Verifier Zero-Knowledge (SHVZK)
 
 Risk of secret leakage
 + Require that $r$ has to be random, otherwise Bob may deduce secret $s$
-	+ Alice uses the same $r$ twice and compute $z,z^{\prime}$ $$\begin{aligned}
+	+ Alice uses the same $r$ twice and compute $z,z^{\prime}$
+    + Bob can deduce secret $s$ through $s=(z-z^{\prime})/(c-c^{\prime})$
+$$\begin{aligned}
 z &= r+c*s \\
 z^{\prime} &= r+c^{\prime}*s
 \end{aligned}$$
-	+ Bob can deduce secret $s$ through $s=(z-z^{\prime})/(c-c^{\prime})$
+	
 
 ## Non-Interactive Schnorr with Fiat-Shamir Transformation
 Fiat-Shamir transformation
@@ -78,7 +80,8 @@ Fiat-Shamir transformation
 ```
 
 Workflow
-- Alice: choose a random $r$ and compute $$\begin{aligned}
+- Alice: choose a random $r$ and compute
+$$\begin{aligned}
 R &= r*G \\
 c &= Hash(PK,R) \\
 z &= r+c*s
@@ -119,7 +122,7 @@ $$c=Hash(m,R)$$
 ```
 
 Alice sends $(c,z)$ instead of $(R,z)$ because $R$ can be computed by $(c,z)$
-The complexity of current elliptic curve attack algorithms are mostly _$O(\sqrt{n})$, where $n$ is the bit number of the finite field. So a 256-bit elliptic curve's security level is only 128 bits, then a 128-bit $c$ is enough (save more space than 256-bit $R$)
+The complexity of current elliptic curve attack algorithms are mostly $O(\sqrt{n})$, where $n$ is the bit number of the finite field. So a 256-bit elliptic curve's security level is only 128 bits, then a 128-bit $c$ is enough (save more space than 256-bit $R$)
 
 ## Multi Signature
 Schnorr satisfies linear homomorphic property
@@ -150,8 +153,9 @@ R &= z*G-c*PK
 
 ## References
 
-[1] Sigma protocol https://www.cs.au.dk/~ivan/Sigma.pdf
-[2] Sigma protocol https://crypto.stanford.edu/~dabo/cryptobook/BonehShoup_0_4.pdf
+Sigma protocol https://www.cs.au.dk/~ivan/Sigma.pdf
+
+Sigma protocol https://crypto.stanford.edu/~dabo/cryptobook/BonehShoup_0_4.pdf
 ```
              Σ-protocol
 P(x,w) +----------- a -------------> V(x)

@@ -30,7 +30,7 @@ K_{public}(x)&=w_{public} \cdot [K_1(x),...K_l(x)] \\
 K_{private}(x)&=w_{private} \cdot [K_{l+1},...K_m(x)]
 \end{aligned}$$
 ## Prove
-$$\begin{aligned}[]
+$$\begin{aligned}
 \boxed{A_1}&=[\alpha]_1+[A(\tau)]_1+[r*\delta]_1 \\
 B_1&=[\beta]_1+[B(\tau)]_1+[s*\delta]_1 \\
 \boxed{B_2}&=[\beta]_2+[B(\tau)]_2+[s*\delta]_2 \\
@@ -55,8 +55,13 @@ Right&=\alpha*\beta+K_{public}(\tau)+K_{private}(\tau)+H(\tau)*Z(\tau)+s*\alpha*
 
 ## References
 Groth16 https://www.zeroknowledgeblog.com/index.php/groth16
+
 Groth16 https://www.rareskills.io/post/groth16
+
 Groth16 https://blog.lambdaclass.com/groth16/
+
 Groth16 https://xn--2-umb.com/22/groth16
+
 Malleability attacks https://medium.com/ppio/how-to-generate-a-groth16-proof-for-forgery-9f857b0dcafd
+
 Groth16 paper https://eprint.iacr.org/2016/260.pdf

@@ -1,3 +1,5 @@
+## Schwartz–Zippel Lemma
+
 A polynomial $f(x)$ of degree $d$ has at most $d$ solutions for $f(x) = 0$
 
 If the range of candidate values for $x$ has size $p$, then the probability of randomly selecting an $x_0$ such that $f(x_0) = 0$ is at most $\frac{d}{p}$

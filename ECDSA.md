@@ -7,6 +7,7 @@ Finite field & additive group
 - When $P$ and $Q$ are the same point, draw the tangent between the point and the elliptic curve. The second intersection point with the elliptic curve is $-R$. Then reflect $-R$ across the x-axis to get $R$
 - The intersection point $-R$ must exist
 - An identity element 0 is defined as the point as infinity
+
 ![](./assets/ecdsa-1.png)
 
 Generator $G$
@@ -15,6 +16,7 @@ $K = k * G$
 
 - Easy to compute $K$ with pre-computed $[2^n]G$
 - Given $K$ and $G$, it is hard to get $k$
+
 ![](./assets/ecdsa-2.png)
 
 ## ECDSA
@@ -46,22 +48,26 @@ Alice has private key $d \in \mathbb{F}_q$, hash of message $m$ is $z$
 ```
 
 Workflow
-- Alice: choose a random $k$ and compute $$\begin{aligned}
+- Alice: choose a random $k$ and compute
+$$\begin{aligned}
 R &= k*G \\
 r &= R_x \mod{q} \\
 s &= (h+r*d)/k \mod{q}
 \end{aligned}$$
 - Alice: generate proof $(r,s)$
 - Bob: compute $R,R^{\prime}$ from $r$ and the elliptic curve
-- Bob: verify $$\begin{aligned}
+- Bob: verify
+$$\begin{aligned}
 R^{\prime} &= h/s*G+r/s*PK \\
 r &\overset{\text{?}}{=} R^{\prime}_x
 \end{aligned}$$
 Risk of private key leakage
 + Require that $k$ has to be random.,otherwise Bob may deduce private key $d$
-	+ Alice uses the same $k$ twice and compute $s,s^{\prime}$ $$\begin{aligned}
-	s_1 &= (h_1+r*d)/k \\
-	s_2 &= (h_2+r*d)/k \\
-	\end{aligned}$$
-	+ Bob can deduce $k$ through $k=(h_1-h_2)/(s_1-s_2)$
+	+ Alice uses the same $k$ twice and compute $s,s^{\prime}$
+	+ Bob can deduce $k$ through $k=(h_1-h_2)/(s_1-s_2)$ 
 	+ Bob then can deduce private key $d$ through $d=(s_1*k-h_1)/r$
+
+$$\begin{aligned}
+s_1 &= (h_1+r*d)/k \\
+s_2 &= (h_2+r*d)/k \\
+\end{aligned}$$

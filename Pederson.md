@@ -76,5 +76,7 @@ where $r*Q$ and $s*Q$ are blinding terms
 
 ## References
 Pedersen commitment https://www.youtube.com/watch?v=8DwqbbSuE4Y
+
 Pedersen commitment https://www.rareskills.io/post/pedersen-commitment
+
 Monero https://medium.com/coinmonks/zero-knowledge-proofs-um-what-a092f0ee9f28 https://github.com/mukatee/monero-scraper/tree/master/src/golang
