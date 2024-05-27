@@ -4,7 +4,9 @@ x_5 * x_6 &= out = 5 \\
 x_1 + x_2 &= x_5 \\
 x_3 * x_4 &= x_6 \\
 \end{split}$$
+
 Witness table (invisible to verifier) & Selector table & Public inputs
+
 $$
 \begin{array}{c|c|c|c|}
 i & a_i & b_i & c_i \\
@@ -33,9 +35,11 @@ PI \\
 0 \\
 \end{array}
 $$
+
 $$q_{L,i} \cdot a_i + q_{R,i} \cdot b_i + q_{M,i} \cdot a_i \cdot b_i + q_{O,i} \cdot c_i + q_{C,i} + PI_i= 0$$
 
 Permutation table
+
 $$
 \begin{array}{c|c|c|c|}
 i & id_a & id_b & id_c \\
@@ -73,6 +77,7 @@ w^2 & k_1 \cdot w^2 & \color{red}w \\
 w^3 & k_1 \cdot w^3 & \color{green}k_1 \cdot w \\
 \end{array}
 $$
+
 ## Universal Trusted Setup
 $$SRS=\{G_1,[\tau]_1,[\tau^2]_1,...[\tau^d],G_2,[\tau]_2\}$$
 
