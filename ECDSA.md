@@ -21,7 +21,7 @@ Generator $G$
 
 Cyclic group $[0]G, G, [2]G, ... [q-1]G$ 
 
-$K = k * G$
+$K = k \cdot  G$
 
 - Easy to compute $K$ with pre-computed $[2^n]G$
 
@@ -63,9 +63,9 @@ Workflow
 - Alice: choose a random $k$ and compute
 
 $$\begin{aligned}
-R &= k*G \\
+R &= k\cdot G \\
 r &= R_x \mod{q} \\
-s &= (h+r*d)/k \mod{q}
+s &= (h+r\cdot d)/k \mod{q}
 \end{aligned}$$
 
 - Alice: generate proof $(r,s)$
@@ -75,7 +75,7 @@ s &= (h+r*d)/k \mod{q}
 - Bob: verify
 
 $$\begin{aligned}
-R^{\prime} &= h/s*G+r/s*PK \\
+R^{\prime} &= h/s\cdot G+r/s\cdot PK \\
 r &\overset{\text{?}}{=} R^{\prime}_x
 \end{aligned}$$
 
@@ -84,9 +84,9 @@ Risk of private key leakage
 + Require that $k$ has to be random.,otherwise Bob may deduce private key $d$
 	+ Alice uses the same $k$ twice and compute $s,s^{\prime}$
 	+ Bob can deduce $k$ through $k=(h_1-h_2)/(s_1-s_2)$ 
-	+ Bob then can deduce private key $d$ through $d=(s_1*k-h_1)/r$
+	+ Bob then can deduce private key $d$ through $d=(s_1\cdot k-h_1)/r$
 
 $$\begin{aligned}
-s_1 &= (h_1+r*d)/k \\
-s_2 &= (h_2+r*d)/k \\
+s_1 &= (h_1+r\cdot d)/k \\
+s_2 &= (h_2+r\cdot d)/k \\
 \end{aligned}$$

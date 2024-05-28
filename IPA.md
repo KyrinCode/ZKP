@@ -85,9 +85,9 @@ $$\begin{aligned}
 
 Left for verifier to do
 
-+ compute $b^0$ from $\overrightarrow{b}$ following the folding scheme (succinct check $O(logn)$)
++ compute $b^0$ from $\overrightarrow{b}$ following the folding scheme (succinct check $O(logn)$ )
 
-+ check $G^0$ was correctly constructed (expensive check $O(n)$)
++ check $G^0$ was correctly constructed (expensive check $O(n)$ )
 
 ## References
 

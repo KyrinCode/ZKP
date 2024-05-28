@@ -81,7 +81,7 @@ $$
 
 ## Universal Trusted Setup
 
-$$SRS=\{G_1,[\tau]_1,[\tau^2]_1,...[\tau^d],G_2,[\tau]_2\}$$
+$$SRS=\lbrace G_1,[\tau]_1,[\tau^2]_1,...[\tau^d],G_2,[\tau]_2\rbrace $$
 
 ## Public Inputs
 
@@ -102,9 +102,9 @@ Example
 multiplicative generator: $g=2$
 
 $$\begin{aligned}
-H&=\{1,5,12,8\} \\
-H_1&=g \cdot \mathbb{H}=\{2,10,11,3\} \\
-H_2&=g^2 \cdot \mathbb{H}=\{4,7,9,6\}
+H&=\lbrace 1,5,12,8\rbrace  \\
+H_1&=g \cdot \mathbb{H}=\lbrace 2,10,11,3\rbrace  \\
+H_2&=g^2 \cdot \mathbb{H}=\lbrace 4,7,9,6\rbrace 
 \end{aligned}$$
 
 ## Round 1
@@ -120,15 +120,15 @@ c(x)&=c_0L_0(x)+c_1L_1(x)+...+c_{n-1}L_{n-1}(x)
 where Lagrange basis $L_i(x)=\prod\limits_{j=0,j \neq i}^{n-1} \frac{x-w^j}{w^i-w^j}$
 
 $$\begin{aligned}
-L_i(x) &= \left\{
+L_i(x) &= \left\lbrace 
 	\begin{array}{l}
         1,\quad x=w^i \\
-        0,\quad x \in \mathbb{H}\backslash\{w^i\} \\
+        0,\quad x \in \mathbb{H}\backslash\lbrace w^i\rbrace  \\
     \end{array}
 \right.
 \end{aligned}$$
 
-where $\mathbb{H}=\{1,w,w^2,...w^{n-1}\}$ is composed of roots of unity, $\mathbb{H}$ is a multiplicative subgroup, $n=2^k$
+where $\mathbb{H}=\lbrace 1,w,w^2,...w^{n-1}\rbrace $ is composed of roots of unity, $\mathbb{H}$ is a multiplicative subgroup, $n=2^k$
 
 $$\begin{aligned}
 z_H(x)&=(x-1)(x-w)(x-w^2)...(x-w^{n-1}) \\
@@ -175,8 +175,8 @@ And we get quotient function $t(x)$
 
 $$\begin{aligned}
 & q_L(x) \cdot a(x) + q_R(x) \cdot b(x) + q_M(x) \cdot a(x) \cdot b(x) + q_O(x) \cdot c(x) + q_C(x) + PI(x) \\
-& +\alpha \cdot \{z(w \cdot x) \cdot [a(x)+\beta \cdot \sigma_a(x) + \gamma] \cdot [b(x)+\beta \cdot \sigma_b(x) + \gamma] \cdot [c(x)+\beta \cdot \sigma_c(x) + \gamma] \\
-&\qquad\qquad- z(x) \cdot [a(x)+\beta \cdot x + \gamma] \cdot [b(x)+\beta \cdot k_1 \cdot x + \gamma] \cdot [c(x)+\beta \cdot k_2 \cdot x + \gamma]\} \\
+& +\alpha \cdot \lbrace z(w \cdot x) \cdot [a(x)+\beta \cdot \sigma_a(x) + \gamma] \cdot [b(x)+\beta \cdot \sigma_b(x) + \gamma] \cdot [c(x)+\beta \cdot \sigma_c(x) + \gamma] \\
+& \qquad\qquad- z(x) \cdot [a(x)+\beta \cdot x + \gamma] \cdot [b(x)+\beta \cdot k_1 \cdot x + \gamma] \cdot [c(x)+\beta \cdot k_2 \cdot x + \gamma]\rbrace \\
 & +\alpha^2 \cdot L_0(x) \cdot [z(x)-1] \\
 & = t(x) \cdot z_H(x) \\
 \\
@@ -230,8 +230,8 @@ Then verifier checks
 
 $$\begin{aligned}
 & q_L(\zeta) \cdot a(\zeta) + q_R(\zeta) \cdot b(\zeta) + q_M(\zeta) \cdot a(\zeta) \cdot b(\zeta) + q_O(\zeta) \cdot c(\zeta) + q_C(\zeta) + PI(\zeta) \\
-& +\alpha \cdot \{z(w \cdot \zeta) \cdot [a(\zeta)+\beta \cdot \sigma_a(\zeta) + \gamma] \cdot [b(\zeta)+\beta \cdot \sigma_b(\zeta) + \gamma] \cdot [c(\zeta)+\beta \cdot \sigma_c(\zeta) + \gamma] \\
-&\qquad\qquad- z(\zeta) \cdot [a(\zeta)+\beta \cdot x + \gamma] \cdot [b(\zeta)+\beta \cdot k_1 \cdot \zeta + \gamma] \cdot [c(\zeta)+\beta \cdot k_2 \cdot \zeta + \gamma]\} \\
+& +\alpha \cdot \lbrace z(w \cdot \zeta) \cdot [a(\zeta)+\beta \cdot \sigma_a(\zeta) + \gamma] \cdot [b(\zeta)+\beta \cdot \sigma_b(\zeta) + \gamma] \cdot [c(\zeta)+\beta \cdot \sigma_c(\zeta) + \gamma] \\
+& \qquad\qquad- z(\zeta) \cdot [a(\zeta)+\beta \cdot x + \gamma] \cdot [b(\zeta)+\beta \cdot k_1 \cdot \zeta + \gamma] \cdot [c(\zeta)+\beta \cdot k_2 \cdot \zeta + \gamma]\rbrace  \\
 & +\alpha^2 \cdot L_0(\zeta) \cdot [z(\zeta)-1] \\
 & \overset{\text{?}}{=} [t_{low}(\zeta)+x^n \cdot t_{mid}(\zeta)+x^{2n} \cdot t_{high}(\zeta)] \cdot z_H(\zeta)
 \end{aligned}$$
@@ -244,8 +244,8 @@ Prover wants to prove
 
 $$\begin{aligned}
 & q_L(x) \cdot a(x) + q_R(x) \cdot b(x) + q_M(x) \cdot a(x) \cdot b(x) + q_O(x) \cdot c(x) + q_C(x) + PI(x)\\
-& +\alpha \cdot \{z(w \cdot x) \cdot [a(x)+\beta \cdot \sigma_a(x) + \gamma] \cdot [b(x)+\beta \cdot \sigma_b(x) + \gamma] \cdot [c(x)+\beta \cdot \sigma_c(x) + \gamma] \\
-& \qquad\qquad - z(x) \cdot [a(x)+\beta \cdot x + \gamma] \cdot [b(x)+\beta \cdot k_1 \cdot x + \gamma] \cdot [c(x)+\beta \cdot k_2 \cdot x + \gamma]\} \\
+& +\alpha \cdot \lbrace z(w \cdot x) \cdot [a(x)+\beta \cdot \sigma_a(x) + \gamma] \cdot [b(x)+\beta \cdot \sigma_b(x) + \gamma] \cdot [c(x)+\beta \cdot \sigma_c(x) + \gamma] \\
+& \qquad\qquad - z(x) \cdot [a(x)+\beta \cdot x + \gamma] \cdot [b(x)+\beta \cdot k_1 \cdot x + \gamma] \cdot [c(x)+\beta \cdot k_2 \cdot x + \gamma]\rbrace  \\
 & +\alpha^2 \cdot L_0(x) \cdot [z(x)-1] \\
 & = [t_{low}(x)+x^n \cdot t_{mid}(x)+x^{2n} \cdot t_{high}(x)] \cdot z_H(x) \\
 \\
@@ -268,9 +268,9 @@ Prover constructs auxiliary polynomial
 
 $$\begin{aligned}
 r(x)&={\color{red}a(\zeta)} \cdot q_L(x) + {\color{red}b(\zeta)} \cdot q_R(x) + {\color{red}a(\zeta) \cdot b(\zeta)} \cdot q_M(x) + {\color{red}c(\zeta)} \cdot q_O(x) + q_C(x) + {\color{green}PI(\zeta)}\\
-& \quad+\alpha \cdot \{{\color{red}z(w \cdot \zeta)} \cdot [{\color{red}a(\zeta)}+\beta \cdot {\color{red}\sigma_a(\zeta)} + \gamma] \cdot [{\color{red}b(\zeta)}+\beta \cdot {\color{red}\sigma_b(\zeta)} + \gamma] \cdot [{\color{red}c(\zeta)}+\beta \cdot \sigma_c(x) + \gamma] \\
+& \quad+\alpha \cdot \lbrace {\color{red}z(w \cdot \zeta)} \cdot [{\color{red}a(\zeta)}+\beta \cdot {\color{red}\sigma_a(\zeta)} + \gamma] \cdot [{\color{red}b(\zeta)}+\beta \cdot {\color{red}\sigma_b(\zeta)} + \gamma] \cdot [{\color{red}c(\zeta)}+\beta \cdot \sigma_c(x) + \gamma] \\
 & \qquad\qquad - z(x) \cdot [{\color{red}a(\zeta)}+\beta \cdot {\color{green}\zeta} + \gamma] \cdot [{\color{red}b(\zeta)}+\beta \cdot k_1 \cdot {\color{green}\zeta} + \gamma] \cdot [{\color{red}c(\zeta
-)}+\beta \cdot k_2 \cdot {\color{green}\zeta} + \gamma]\} \\
+)}+\beta \cdot k_2 \cdot {\color{green}\zeta} + \gamma]\rbrace  \\
 & \quad+\alpha^2 \cdot {\color{green}L_0(\zeta)} \cdot [z(x)-1] \\
 & \quad-[t_{low}(x)+{\color{green}\zeta^n} \cdot t_{mid}(x)+{\color{green}\zeta^{2n}} \cdot t_{high}(x)] \cdot {\color{green}z_H(\zeta)} \\
 \\
@@ -319,8 +319,8 @@ Verifier gets random $u$ from verifier
 $$\begin{aligned}
 r0&=PI(\zeta)-\alpha\cdot z(w\cdot\zeta)\cdot[a(\zeta)+\beta \cdot \sigma_a(\zeta) + \gamma] \cdot [b(\zeta)+\beta \cdot \sigma_b(\zeta) + \gamma] \cdot [c(\zeta)+\beta \cdot \sigma_c(x) + \gamma] -\alpha^2\cdot L_0(\zeta) \\
 D&=a(\zeta)\cdot[q_L(\tau)]_1+b(\zeta)\cdot[q_R(\tau)]_1+a(\zeta)\cdot b(\zeta)\cdot[q_M(\tau)]_1+c(\zeta)\cdot[q_O(\tau)]_1+[q_C(\tau)]_1 \\
-&\quad+\{\alpha\cdot[a(\zeta)+\beta\zeta+\gamma]\cdot[b(\zeta)+\beta\cdot k_1\cdot\zeta+\gamma]\cdot[c(\zeta)+\beta\cdot k_2\cdot\zeta+\gamma]+\alpha^2\cdot L_0(\zeta)+u\}\cdot[z(\tau)]_1 \\
-&\quad-\{\alpha\cdot\beta\cdot z(w\cdot \zeta)\cdot[a(\zeta)+\beta\cdot\sigma_a(\zeta)+\gamma]\cdot[a(\zeta)+\zeta\cdot\sigma_b(\zeta)+\gamma]\}\cdot[\sigma_c(\tau)]_1 \\
+&\quad+\lbrace \alpha\cdot[a(\zeta)+\beta\zeta+\gamma]\cdot[b(\zeta)+\beta\cdot k_1\cdot\zeta+\gamma]\cdot[c(\zeta)+\beta\cdot k_2\cdot\zeta+\gamma]+\alpha^2\cdot L_0(\zeta)+u\rbrace \cdot[z(\tau)]_1 \\
+&\quad-\lbrace \alpha\cdot\beta\cdot z(w\cdot \zeta)\cdot[a(\zeta)+\beta\cdot\sigma_a(\zeta)+\gamma]\cdot[a(\zeta)+\zeta\cdot\sigma_b(\zeta)+\gamma]\rbrace \cdot[\sigma_c(\tau)]_1 \\
 &\quad-z_H(\zeta)\cdot [t_{low}(\tau)]_1-z_H(\zeta)\cdot\zeta^n\cdot[t_{mid}(\tau)]_1-z_H(\zeta)\cdot\zeta^{2n}\cdot[t_{high}(\tau)]_1 \\
 &=[r(\tau)]_1 - [r0]_1 + u\cdot [z(\tau)]_1 \\
 F&=D+[v\cdot a(\tau)+v^2 \cdot b(\tau)+v^3 \cdot c(\tau)+v^4 \cdot \sigma_a(\tau)+v^5 \cdot \sigma_b(\tau)]_1 \\
@@ -338,6 +338,8 @@ $$\begin{aligned}
 \end{aligned}$$
 
 ## References
+
+Plonk https://github.com/sec-bit/learning-zkp
 
 Plonk arithmetization https://vitalik.eth.limo/general/2019/09/22/plonk.html
 
