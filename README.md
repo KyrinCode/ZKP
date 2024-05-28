@@ -20,11 +20,13 @@ IPA
 
 FRI
 
-## ZKP
+## Signature
 
 Schnorr
 
 ECDSA
+
+## ZKP
 
 Pinocchio
 
