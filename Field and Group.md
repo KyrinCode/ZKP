@@ -8,7 +8,7 @@ A field is a set where two operations, addition and multiplication, are defined,
 
 - Identity elements: the field has additive identity element 0 and multiplicative identity element 1, $a+0=a, a*1=a,\forall a \in \mathbb{F}$
 
-- Inverse elements: every non-zero element $a$ in the field has an additive inverse $−a$ such that $a+(−a)=0$, and every non-zero element $a$ in the field has a multiplicative inverse $a^{−1}$ such that $a*a^{−1}=1$
+- Inverse elements: every element $a$ in the field has an additive inverse $−a$ such that $a+(−a)=0$, and every non-zero element $a$ in the field has a multiplicative inverse $a^{−1}$ such that $a*a^{−1}=1$
 
 ## Group
 
